@@ -1,0 +1,13 @@
+{
+  "name": "truehelp",
+  "version": "1.0.0",
+  "main": "truehelp_api_server.js",
+  "scripts": {
+    "start": "node truehelp_api_server.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "body-parser": "^1.20.2",
+    "uuid": "^9.0.0"
+  }
+}
