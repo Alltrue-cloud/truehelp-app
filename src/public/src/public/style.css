@@ -1,0 +1,32 @@
+/* Reset & base */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  line-height: 1.6;
+  color: #333;
+  background: #f4f6f8;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+/* Container */
+.hero, .signup, .footer {
+  width: 90%; max-width: 480px; margin: 0 auto; text-align: center; padding: 2rem 0;
+}
+/* Hero */
+.hero { background: #fff; border-radius: 8px; padding: 3rem 1rem; margin-top: 2rem; box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
+.hero .logo { height: 64px; margin-bottom: 1rem; }
+.hero h1 { font-size: 1.8rem; margin-bottom: 0.5rem; }
+.hero .subhead { color: #555; }
+/* Sign-up form */
+.signup { background: #fff; border-radius: 8px; padding: 2rem 1rem; box-shadow: 0 4px 12px rgba(0,0,0,0.05); margin-top: 1.5rem; }
+.signup label { display: block; margin-bottom: 0.5rem; font-weight: 500; }
+.input-group { display: flex; gap: 0.5rem; margin-bottom: 0.75rem; }
+.input-group input { flex: 1; padding: 0.75rem 1rem; border: 1px solid #ccc; border-radius: 4px; font-size: 1rem; }
+.input-group button { padding: 0.75rem 1rem; background: #0066ff; color: #fff; border: none; border-radius: 4px; font-size: 1rem; cursor: pointer; }
+.input-group button:hover { background: #0051cc; }
+.form-message { min-height: 1.2rem; font-size: 0.9rem; color: #d9534f; }
+/* Footer */
+.footer { margin-top: auto; padding: 1rem 0; font-size: 0.85rem; }
+.footer a { color: #0066ff; text-decoration: none; margin: 0 0.5rem; }
+.footer a:hover { text-decoration: underline; }
