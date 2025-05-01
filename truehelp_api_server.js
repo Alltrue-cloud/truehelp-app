@@ -9,7 +9,8 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 app.use(bodyParser.json());
-app.use(express.static(path.join(__dirname, 'public')));
+// Serve the public/ folder from the project root
+app.use(express.static(path.join(process.cwd(), 'public')));
 
 const FAC_FILE = path.join(__dirname, 'data', 'facilities.json');
 const SUB_FILE = path.join(__dirname, 'data', 'subscriptions.json');
