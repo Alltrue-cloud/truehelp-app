@@ -1,1 +1,62 @@
-<html><head><title>TrueHelp</title></head><body><h1>Welcome to TrueHelp</h1></body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>TrueHelp – Independent Support You Can Trust</title>
+  <meta name="description" content="TrueHelp connects families to mental health & substance-abuse treatment centers matched to your needs, budget, and insurance.">
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <header class="hero">
+    <img src="/logo.png" alt="TrueHelp logo" class="logo">
+    <h1>Independent support you can trust.</h1>
+    <p class="subhead">Find trusted mental-health and substance-abuse treatment centers matched to your needs.</p>
+  </header>
+
+  <section class="signup">
+    <form id="notify-form" class="email-form">
+      <label for="email">Get notified when we launch:</label>
+      <div class="input-group">
+        <input type="email" id="email" name="email" placeholder="you@example.com" required>
+        <button type="submit">Notify Me</button>
+      </div>
+      <p id="notify-message" class="form-message"></p>
+    </form>
+  </section>
+
+  <footer class="footer">
+    <a href="/privacy.html">Privacy Policy</a> |
+    <a href="/terms.html">Terms of Service</a> |
+    <a href="/hipaa.html">HIPAA Notice</a>
+  </footer>
+
+  <script>
+    document.getElementById('notify-form').addEventListener('submit', async e => {
+      e.preventDefault();
+      const email = e.target.email.value.trim();
+      const msg = document.getElementById('notify-message');
+      msg.textContent = '';
+      if (!email) {
+        msg.textContent = 'Please enter a valid email.';
+        return;
+      }
+      try {
+        const res = await fetch('/api/subscribe', {
+          method: 'POST',
+          headers: {'Content-Type':'application/json'},
+          body: JSON.stringify({ email })
+        });
+        if (res.ok) {
+          msg.textContent = 'Thanks! We’ll let you know.';
+          e.target.reset();
+        } else {
+          throw new Error();
+        }
+      } catch {
+        msg.textContent = 'Oops—something went wrong. Try again shortly.';
+      }
+    });
+  </script>
+</body>
+</html>
